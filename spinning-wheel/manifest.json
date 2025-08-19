@@ -1,16 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "돌림판 확장프로그램",
+  "name": "Spinning Wheel",
   "version": "1.0",
-  "description": "간단한 돌림판으로 선택의 고민을 해결하세요!",
+  "description": "Simple spinning wheel to help you make decisions!",
   "permissions": [],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "돌림판"
-  },
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "default_title": "Spinning Wheel"
   }
 }
