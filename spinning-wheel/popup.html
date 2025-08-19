@@ -1,50 +1,50 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>돌림판</title>
+    <title>Spinning Wheel</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
 <div class="container">
-    <h1>🎯 돌림판</h1>
+    <h1>🎯 Spinning Wheel</h1>
 
-    <!-- 항목 입력 섹션 -->
+    <!-- Item input section -->
     <div class="input-section">
-        <input type="text" id="itemInput" placeholder="항목을 입력하세요" maxlength="20">
-        <button id="addBtn">추가</button>
+        <input type="text" id="itemInput" placeholder="Enter an item" maxlength="20">
+        <button id="addBtn">Add</button>
     </div>
 
-    <!-- 항목 목록 -->
+    <!-- Items list -->
     <div class="items-list" id="itemsList">
         <div class="item-chip">
-            <span>피자</span>
-            <button class="remove-btn" data-item="피자">×</button>
+            <span>Pizza</span>
+            <button class="remove-btn" data-item="Pizza">×</button>
         </div>
         <div class="item-chip">
-            <span>치킨</span>
-            <button class="remove-btn" data-item="치킨">×</button>
+            <span>Chicken</span>
+            <button class="remove-btn" data-item="Chicken">×</button>
         </div>
         <div class="item-chip">
-            <span>햄버거</span>
-            <button class="remove-btn" data-item="햄버거">×</button>
+            <span>Burger</span>
+            <button class="remove-btn" data-item="Burger">×</button>
         </div>
     </div>
 
-    <!-- 돌림판 -->
+    <!-- Spinning wheel -->
     <div class="wheel-container">
         <canvas id="wheelCanvas" width="250" height="250"></canvas>
         <div class="wheel-pointer">▼</div>
     </div>
 
-    <!-- 컨트롤 버튼들 -->
+    <!-- Control buttons -->
     <div class="controls">
-        <button id="spinBtn" class="spin-btn">돌리기! 🎲</button>
-        <button id="resetBtn" class="reset-btn">초기화</button>
+        <button id="spinBtn" class="spin-btn">Spin! 🎲</button>
+        <button id="resetBtn" class="reset-btn">Reset</button>
     </div>
 
-    <!-- 결과 표시 -->
+    <!-- Result display -->
     <div class="result" id="result"></div>
 </div>
 

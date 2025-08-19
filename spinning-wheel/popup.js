@@ -2,7 +2,7 @@ class WheelSpinner {
     constructor() {
         this.canvas = document.getElementById('wheelCanvas');
         this.ctx = this.canvas.getContext('2d');
-        this.items = ['피자', '치킨', '햄버거'];
+        this.items = ['Pizza', 'Chicken', 'Burger'];
         this.colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'];
         this.rotation = 0;
         this.isSpinning = false;
@@ -42,7 +42,7 @@ class WheelSpinner {
     removeItem(item) {
         this.items = this.items.filter(i => i !== item);
         if (this.items.length === 0) {
-            this.items = ['항목1', '항목2', '항목3'];
+            this.items = ['Item1', 'Item2', 'Item3'];
         }
         this.drawWheel();
         this.updateItemsList();
@@ -69,11 +69,11 @@ class WheelSpinner {
         const anglePerSection = (2 * Math.PI) / this.items.length;
 
         this.items.forEach((item, index) => {
-            // 12시 방향부터 시계방향으로 섹션 배치
+            // Place sections clockwise starting from 12 o'clock
             const startAngle = index * anglePerSection - Math.PI / 2 + this.rotation;
             const endAngle = startAngle + anglePerSection;
 
-            // 섹션 그리기
+            // Draw section
             this.ctx.beginPath();
             this.ctx.moveTo(centerX, centerY);
             this.ctx.arc(centerX, centerY, radius, startAngle, endAngle);
@@ -83,7 +83,7 @@ class WheelSpinner {
             this.ctx.lineWidth = 3;
             this.ctx.stroke();
 
-            // 텍스트 그리기
+            // Draw text
             const textAngle = startAngle + anglePerSection / 2;
             const textX = centerX + Math.cos(textAngle) * (radius * 0.7);
             const textY = centerY + Math.sin(textAngle) * (radius * 0.7);
@@ -98,7 +98,7 @@ class WheelSpinner {
             this.ctx.restore();
         });
 
-        // 중심 원
+        // Center circle
         this.ctx.beginPath();
         this.ctx.arc(centerX, centerY, 20, 0, 2 * Math.PI);
         this.ctx.fillStyle = '#333';
@@ -115,8 +115,8 @@ class WheelSpinner {
         document.getElementById('spinBtn').disabled = true;
         document.querySelector('.container').classList.add('spinning');
 
-        const spinDuration = 3000 + Math.random() * 2000; // 3-5초
-        const totalRotation = 2 * Math.PI * (5 + Math.random() * 5); // 5-10바퀴
+        const spinDuration = 3000 + Math.random() * 2000; // 3-5 seconds
+        const totalRotation = 2 * Math.PI * (5 + Math.random() * 5); // 5-10 rotations
         const startRotation = this.rotation;
         const startTime = Date.now();
 
@@ -124,7 +124,7 @@ class WheelSpinner {
             const elapsed = Date.now() - startTime;
             const progress = Math.min(elapsed / spinDuration, 1);
 
-            // easeOut 효과
+            // easeOut effect
             const easeOut = 1 - Math.pow(1 - progress, 3);
             this.rotation = startRotation + totalRotation * easeOut;
 
@@ -146,17 +146,17 @@ class WheelSpinner {
         document.getElementById('spinBtn').disabled = false;
         document.querySelector('.container').classList.remove('spinning');
 
-        // 결과 계산 - 간단하고 정확한 방법
+        // Calculate result - simple and accurate method
         const anglePerSection = (2 * Math.PI) / this.items.length;
 
-        // 현재 회전각을 0~2π 범위로 정규화
+        // Normalize current rotation to 0~2π range
         let normalizedRotation = this.rotation % (2 * Math.PI);
         if (normalizedRotation < 0) {
             normalizedRotation += 2 * Math.PI;
         }
 
-        // 포인터는 12시 방향에 고정되어 있음
-        // 회전이 시계방향이므로 반대로 계산해서 어느 섹션이 포인터에 닿는지 확인
+        // Pointer is fixed at 12 o'clock position
+        // Calculate in reverse since rotation is clockwise to determine which section touches the pointer
         const effectiveAngle = (2 * Math.PI - normalizedRotation) % (2 * Math.PI);
         const selectedIndex = Math.floor(effectiveAngle / anglePerSection) % this.items.length;
 
@@ -179,7 +179,7 @@ class WheelSpinner {
     }
 
     reset() {
-        this.items = ['피자', '치킨', '햄버거'];
+        this.items = ['Pizza', 'Chicken', 'Burger'];
         this.rotation = 0;
         this.drawWheel();
         this.updateItemsList();
@@ -187,7 +187,7 @@ class WheelSpinner {
     }
 }
 
-// 확장프로그램 로드 시 초기화
+// Initialize when extension loads
 document.addEventListener('DOMContentLoaded', () => {
     new WheelSpinner();
 });
