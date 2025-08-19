@@ -69,7 +69,8 @@ class WheelSpinner {
         const anglePerSection = (2 * Math.PI) / this.items.length;
 
         this.items.forEach((item, index) => {
-            const startAngle = index * anglePerSection + this.rotation;
+            // 12시 방향부터 시계방향으로 섹션 배치
+            const startAngle = index * anglePerSection - Math.PI / 2 + this.rotation;
             const endAngle = startAngle + anglePerSection;
 
             // 섹션 그리기
@@ -145,12 +146,21 @@ class WheelSpinner {
         document.getElementById('spinBtn').disabled = false;
         document.querySelector('.container').classList.remove('spinning');
 
-        // 결과 계산 (포인터는 12시 방향을 가리킴)
-        const normalizedRotation = this.rotation % (2 * Math.PI);
+        // 결과 계산 - 간단하고 정확한 방법
         const anglePerSection = (2 * Math.PI) / this.items.length;
-        const selectedIndex = Math.floor((2 * Math.PI - normalizedRotation) / anglePerSection) % this.items.length;
-        const selectedItem = this.items[selectedIndex];
 
+        // 현재 회전각을 0~2π 범위로 정규화
+        let normalizedRotation = this.rotation % (2 * Math.PI);
+        if (normalizedRotation < 0) {
+            normalizedRotation += 2 * Math.PI;
+        }
+
+        // 포인터는 12시 방향에 고정되어 있음
+        // 회전이 시계방향이므로 반대로 계산해서 어느 섹션이 포인터에 닿는지 확인
+        const effectiveAngle = (2 * Math.PI - normalizedRotation) % (2 * Math.PI);
+        const selectedIndex = Math.floor(effectiveAngle / anglePerSection) % this.items.length;
+
+        const selectedItem = this.items[selectedIndex];
         this.showResult(selectedItem);
     }
 
