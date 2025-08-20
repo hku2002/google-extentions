@@ -3,7 +3,7 @@ class WheelSpinner {
         this.canvas = document.getElementById('wheelCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.items = ['Pizza', 'Chicken', 'Burger'];
-        this.colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'];
+        this.colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F', '#FFB84D', '#9AECDB'];
         this.rotation = 0;
         this.isSpinning = false;
 
@@ -30,7 +30,7 @@ class WheelSpinner {
         const input = document.getElementById('itemInput');
         const item = input.value.trim();
 
-        if (item && !this.items.includes(item) && this.items.length < 8) {
+        if (item && !this.items.includes(item) && this.items.length < 10) {
             this.items.push(item);
             input.value = '';
             this.drawWheel();

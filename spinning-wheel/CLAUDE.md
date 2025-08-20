@@ -18,14 +18,14 @@ The project uses a simple, vanilla JavaScript architecture:
 ### Core Components
 
 - **WheelSpinner Class**: Main application class that manages:
-  - Item management (add/remove items with 8-item limit)
+  - Item management (add/remove items with 10-item limit)
   - Canvas-based wheel rendering with dynamic colors
   - Spinning animation with easeOut physics
   - Result calculation and display
 
 - **Canvas Rendering**: The wheel is drawn using HTML5 Canvas with:
   - Dynamic sector calculation based on item count
-  - 8 predefined colors that cycle for visual variety
+  - 10 predefined colors that cycle for visual variety
   - Text rotation to match sector angles
   - Real-time rotation updates during spin
 
@@ -49,7 +49,7 @@ This is a standalone Chrome Extension with no build process or dependencies. All
 
 ### Key Features
 
-- **Item Management**: Add up to 8 custom items, remove items individually
+- **Item Management**: Add up to 10 custom items, remove items individually
 - **Visual Feedback**: Smooth animations, hover effects, and result celebrations
 - **Responsive Design**: 320px width popup optimized for extension constraints
 - **Default Items**: Starts with food examples (Pizza, Chicken, Burger)
@@ -64,7 +64,7 @@ This is a standalone Chrome Extension with no build process or dependencies. All
 
 ### Limitations
 
-- Maximum 8 items to maintain readability
+- Maximum 10 items to maintain readability
 - 20 character limit per item
 - No persistent storage (items reset on popup close)
 
