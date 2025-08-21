@@ -19,6 +19,11 @@ class WheelSpinner {
 
     // 다국어 지원 초기화
     initializeLocalization() {
+        // Chrome 확장 프로그램 컨텍스트 확인
+        if (typeof chrome === 'undefined' || !chrome.i18n) {
+            return; // Chrome 확장 프로그램이 아닌 경우 종료
+        }
+
         // 모든 data-i18n 속성을 가진 요소들 번역
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
@@ -38,9 +43,9 @@ class WheelSpinner {
     // 기본 아이템 로드 (언어별)
     loadDefaultItems() {
         this.items = [
-            chrome.i18n.getMessage('defaultItem1') || 'Pizza',
-            chrome.i18n.getMessage('defaultItem2') || 'Chicken',
-            chrome.i18n.getMessage('defaultItem3') || 'Burger'
+            (typeof chrome !== 'undefined' && chrome.i18n) ? (chrome.i18n.getMessage('defaultItem1') || 'Pizza') : 'Pizza',
+            (typeof chrome !== 'undefined' && chrome.i18n) ? (chrome.i18n.getMessage('defaultItem2') || 'Chicken') : 'Chicken',
+            (typeof chrome !== 'undefined' && chrome.i18n) ? (chrome.i18n.getMessage('defaultItem3') || 'Burger') : 'Burger'
         ];
     }
 
@@ -85,17 +90,23 @@ class WheelSpinner {
         const input = document.getElementById('itemInput');
         const item = input.value.trim();
 
-        if (item && !this.items.includes(item) && this.items.length < 8) {
+        if (item && !this.items.includes(item) && this.items.length < 10) {
             this.items.push(item);
             input.value = '';
             this.drawWheel();
             this.updateItemsList();
             this.updateItemCount();
             this.clearResult();
-        } else if (this.items.length >= 8) {
-            alert(chrome.i18n.getMessage('maxItemsAlert') || 'Maximum 8 items allowed!');
+        } else if (this.items.length >= 10) {
+            const message = (typeof chrome !== 'undefined' && chrome.i18n) ? 
+                (chrome.i18n.getMessage('maxItemsAlert') || 'Maximum 10 items allowed!') : 
+                'Maximum 10 items allowed!';
+            alert(message);
         } else if (this.items.includes(item)) {
-            alert(chrome.i18n.getMessage('duplicateAlert') || 'Item already exists!');
+            const message = (typeof chrome !== 'undefined' && chrome.i18n) ? 
+                (chrome.i18n.getMessage('duplicateAlert') || 'Item already exists!') : 
+                'Item already exists!';
+            alert(message);
         }
     }
 
@@ -295,7 +306,8 @@ class WheelSpinner {
 
     clearResult() {
         const resultElement = document.getElementById('result');
-        const placeholderText = chrome.i18n.getMessage('resultPlaceholder') ||
+        const placeholderText = (typeof chrome !== 'undefined' && chrome.i18n) ? 
+            (chrome.i18n.getMessage('resultPlaceholder') || 'Click "Spin the Wheel!" to get your result') : 
             'Click "Spin the Wheel!" to get your result';
         resultElement.textContent = placeholderText;
     }

@@ -48,7 +48,7 @@
     "message": "Click \"Spin the Wheel!\" to get your result"
   },
   "maxItemsAlert": {
-    "message": "Maximum 8 items allowed!"
+    "message": "Maximum 10 items allowed!"
   },
   "duplicateAlert": {
     "message": "Item already exists!"
