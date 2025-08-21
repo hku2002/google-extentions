@@ -6,7 +6,7 @@
   "default_locale": "en",
   "permissions": [],
   "action": {
-    "default_title": "Connie Spinning Wheel"
+    "default_title": "__MSG_appName__"
   },
   "background": {
     "service_worker": "background.js"
