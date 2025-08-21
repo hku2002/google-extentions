@@ -1,0 +1,56 @@
+{
+  "appName": {
+    "message": "Spin Wheel - Decision Maker"
+  },
+  "appDesc": {
+    "message": "Make decisions easily with a simple spin wheel!"
+  },
+  "mainTitle": {
+    "message": "Spin Wheel"
+  },
+  "subtitle": {
+    "message": "Make decisions easily with a simple spin!"
+  },
+  "addOptions": {
+    "message": "Add Your Options"
+  },
+  "placeholder": {
+    "message": "Enter an option (e.g., Pizza)"
+  },
+  "addButton": {
+    "message": "Add"
+  },
+  "yourOptions": {
+    "message": "Your Options"
+  },
+  "spinButton": {
+    "message": "Spin the Wheel!"
+  },
+  "resetButton": {
+    "message": "Reset to Default"
+  },
+  "decisionWheel": {
+    "message": "Decision Wheel"
+  },
+  "footerText": {
+    "message": "Perfect for food choices, activities, or any decision you need to make!"
+  },
+  "defaultItem1": {
+    "message": "Pizza"
+  },
+  "defaultItem2": {
+    "message": "Chicken"
+  },
+  "defaultItem3": {
+    "message": "Burger"
+  },
+  "resultPlaceholder": {
+    "message": "Click \"Spin the Wheel!\" to get your result"
+  },
+  "maxItemsAlert": {
+    "message": "Maximum 8 items allowed!"
+  },
+  "duplicateAlert": {
+    "message": "Item already exists!"
+  }
+}

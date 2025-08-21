@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="appName">Spin Wheel - Decision Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <h1>🎯 <span data-i18n="mainTitle">Spin Wheel</span></h1>
+        <p class="subtitle" data-i18n="subtitle">Make decisions easily with a simple spin!</p>
+    </header>
+
+    <main class="main-content">
+        <div class="left-panel">
+            <div class="input-section">
+                <h2 data-i18n="addOptions">Add Your Options</h2>
+                <div class="input-group">
+                    <input type="text" id="itemInput" data-i18n-placeholder="placeholder" placeholder="Enter an option (e.g., Pizza)" maxlength="30">
+                    <button id="addBtn" class="add-btn" data-i18n="addButton">Add</button>
+                </div>
+            </div>
+
+            <div class="items-section">
+                <h3><span data-i18n="yourOptions">Your Options</span> <span id="itemCount">(3)</span></h3>
+                <div class="items-list" id="itemsList">
+                    <!-- 항목들이 동적으로 추가됩니다 -->
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <button id="spinBtn" class="spin-btn">
+                    <span class="btn-icon">🎲</span>
+                    <span class="btn-text" data-i18n="spinButton">Spin the Wheel!</span>
+                </button>
+                <button id="resetBtn" class="reset-btn" data-i18n="resetButton">Reset to Default</button>
+            </div>
+
+            <div class="result-section">
+                <div class="result" id="result" data-i18n="resultPlaceholder">Click "Spin the Wheel!" to get your result</div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="wheel-section">
+                <h2 data-i18n="decisionWheel">Decision Wheel</h2>
+                <div class="wheel-container">
+                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                    <div class="wheel-pointer">▼</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>🎯 <span data-i18n="footerText">Perfect for food choices, activities, or any decision you need to make!</span></p>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
