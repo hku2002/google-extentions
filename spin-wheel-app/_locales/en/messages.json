@@ -52,5 +52,8 @@
   },
   "duplicateAlert": {
     "message": "Item already exists!"
+  },
+  "noItemsMessage": {
+    "message": "🎯 Please add at least one option to spin the wheel!"
   }
 }

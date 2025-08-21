@@ -112,9 +112,6 @@ class WheelSpinner {
 
     removeItem(item) {
         this.items = this.items.filter(i => i !== item);
-        if (this.items.length === 0) {
-            this.loadDefaultItems();
-        }
         this.drawWheel();
         this.updateItemsList();
         this.updateItemCount();
@@ -195,7 +192,12 @@ class WheelSpinner {
     }
 
     spin() {
-        if (this.isSpinning || this.items.length === 0) return;
+        if (this.isSpinning) return;
+        
+        if (this.items.length === 0) {
+            this.showNoItemsMessage();
+            return;
+        }
 
         this.isSpinning = true;
         document.getElementById('spinBtn').disabled = true;
@@ -302,6 +304,21 @@ class WheelSpinner {
             `;
             document.head.appendChild(style);
         }
+    }
+
+    showNoItemsMessage() {
+        const resultElement = document.getElementById('result');
+        const message = (typeof chrome !== 'undefined' && chrome.i18n) ? 
+            (chrome.i18n.getMessage('noItemsMessage') || '🎯 Please add at least one option to spin the wheel!') : 
+            '🎯 Please add at least one option to spin the wheel!';
+        resultElement.textContent = message;
+        resultElement.classList.add('show');
+        
+        // 3초 후 원래 메시지로 복원
+        setTimeout(() => {
+            resultElement.classList.remove('show');
+            this.clearResult();
+        }, 3000);
     }
 
     clearResult() {
