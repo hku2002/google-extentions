@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Connie Spin wheel",
-  "description": "Simple spinning wheel to help you make decisions!",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
   "version": "1.0",
   "default_locale": "en",
   "permissions": [],
