@@ -3,7 +3,7 @@ class WheelSpinner {
         this.canvas = document.getElementById('wheelCanvas');
         this.ctx = this.canvas.getContext('2d');
         this.items = [];
-        this.colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F'];
+        this.colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8', '#F7DC6F', '#FFB6C1', '#87CEEB'];
         this.rotation = 0;
         this.isSpinning = false;
 
@@ -91,17 +91,17 @@ class WheelSpinner {
         const input = document.getElementById('itemInput');
         const item = input.value.trim();
 
-        if (item && !this.items.includes(item) && this.items.length < 10) {
+        if (item && !this.items.includes(item) && this.items.length < 100) {
             this.items.push(item);
             input.value = '';
             this.drawWheel();
             this.updateItemsList();
             this.updateItemCount();
             this.clearResult();
-        } else if (this.items.length >= 10) {
+        } else if (this.items.length >= 100) {
             const message = (typeof chrome !== 'undefined' && chrome.i18n) ? 
-                (chrome.i18n.getMessage('maxItemsAlert') || 'Maximum 10 items allowed!') : 
-                'Maximum 10 items allowed!';
+                (chrome.i18n.getMessage('maxItemsAlert') || 'Maximum 100 items allowed!') : 
+                'Maximum 100 items allowed!';
             alert(message);
         } else if (this.items.includes(item)) {
             const message = (typeof chrome !== 'undefined' && chrome.i18n) ? 

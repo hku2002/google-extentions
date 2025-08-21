@@ -22,7 +22,7 @@ This is a Chrome extension called "Connie Spin Wheel" - a decision-making tool t
 
 **Key Features:**
 - Canvas-based spinning wheel with HTML5 Canvas API
-- Support for up to 8 items (originally 8, recently increased to 10 based on git history)
+- Support for up to 100 items with 10 cycling colors
 - Smooth easing animation with confetti effects
 - Responsive design that adjusts canvas size based on viewport
 - Keyboard shortcuts (Space bar to spin)
@@ -56,18 +56,19 @@ This is a client-side Chrome extension with no build process or dependencies. No
 
 ## Key Implementation Details
 
-**Canvas Rendering:** The wheel is drawn using HTML5 Canvas with mathematical calculations for sectors, text positioning, and rotation. The canvas size is fixed at 500x500 but scales via CSS for responsiveness.
+**Canvas Rendering:** The wheel is drawn using HTML5 Canvas with mathematical calculations for sectors, text positioning, and rotation. The canvas size is fixed at 600x600 but scales via CSS for responsiveness.
 
 **Animation System:** Uses `requestAnimationFrame` with custom easing function (`1 - Math.pow(1 - progress, 4)`) for smooth spinning animation.
 
-**Item Limits:** Currently supports maximum 8 items (check app.js:88 and app.js:95 for limit logic). Recent commits suggest this was increased to 10.
+**Item Limits:** Currently supports maximum 100 items (check app.js:94 and app.js:101 for limit logic). Uses 10 cycling colors defined in app.js:6.
 
 **Localization Pattern:** Uses Chrome extension i18n API with `data-i18n` and `data-i18n-placeholder` attributes for automatic translation of DOM elements.
 
 ## Recent Changes
 
 Based on git history:
-- Maximum items increased from 8 to 10 
+- Maximum items increased from 8 to 10, then to 100
+- Color system expanded to 10 colors for better variety
 - Korean text converted to English
 - Comprehensive internationalization added
 - Name changes in recent commits
@@ -75,8 +76,11 @@ Based on git history:
 ## Common Modifications
 
 When modifying item limits, update:
-- `app.js:88` - condition check for adding items
-- `app.js:95` - alert message condition  
+- `app.js:94` - condition check for adding items
+- `app.js:101` - alert message condition  
 - Corresponding message in `_locales/*/messages.json`
+
+When modifying colors, update:
+- `app.js:6` - colors array (currently 10 colors that cycle for up to 100 items)
 
 When adding new UI text, add entries to both language files in `_locales/` and use `data-i18n` attributes in HTML or `chrome.i18n.getMessage()` in JavaScript.
