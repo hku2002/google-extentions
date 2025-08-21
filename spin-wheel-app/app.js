@@ -70,18 +70,19 @@ class WheelSpinner {
     // 화면 크기에 따른 캔버스 조정
     adjustCanvasSize() {
         const container = document.querySelector('.wheel-container');
+        const rightPanel = document.querySelector('.right-panel');
         const maxSize = Math.min(
-            container.offsetWidth - 40,
-            window.innerHeight * 0.6,
-            500
+            rightPanel.offsetWidth - 40,
+            window.innerHeight * 0.8,
+            600
         );
 
         this.canvas.style.width = maxSize + 'px';
         this.canvas.style.height = maxSize + 'px';
 
         // 실제 캔버스 크기는 고정
-        this.canvas.width = 500;
-        this.canvas.height = 500;
+        this.canvas.width = 600;
+        this.canvas.height = 600;
 
         this.drawWheel();
     }
@@ -136,7 +137,7 @@ class WheelSpinner {
     drawWheel() {
         const centerX = this.canvas.width / 2;
         const centerY = this.canvas.height / 2;
-        const radius = 230;
+        const radius = 280;
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
