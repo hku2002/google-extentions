@@ -1,0 +1,47 @@
+{
+  "appTitle": {
+    "message": "Group Randomizer"
+  },
+  "appDescription": {
+    "message": "Randomly divide items into balanced groups"
+  },
+  "itemsLabel": {
+    "message": "Items (one per line):"
+  },
+  "itemsPlaceholder": {
+    "message": "Enter items here...\nExample:\nAlice\nBob\nCharlie\nDiana"
+  },
+  "groupsLabel": {
+    "message": "Number of Groups:"
+  },
+  "randomizeBtn": {
+    "message": "🎲 Randomize Groups"
+  },
+  "clearBtn": {
+    "message": "🗑️ Clear All"
+  },
+  "placeholder": {
+    "message": "Enter items and click \"Randomize Groups\" to see the results"
+  },
+  "randomizingText": {
+    "message": "Randomizing..."
+  },
+  "errorNoItems": {
+    "message": "Please enter at least one item"
+  },
+  "errorMinGroups": {
+    "message": "Number of groups must be at least 2"
+  },
+  "errorTooManyGroups": {
+    "message": "Number of groups cannot exceed number of items"
+  },
+  "duplicateError": {
+    "message": "Duplicate items found:"
+  },
+  "duplicateNote": {
+    "message": "Please remove duplicates before creating groups."
+  },
+  "timesText": {
+    "message": " times"
+  }
+}

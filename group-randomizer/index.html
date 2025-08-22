@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Randomizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 data-i18n="appTitle">Group Randomizer</h1>
+            <p data-i18n="appDescription">Randomly divide items into balanced groups</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="items-input" data-i18n="itemsLabel">Items (one per line):</label>
+                    <textarea
+                        id="items-input"
+                        placeholder="Enter items here..."
+                        data-i18n-placeholder="itemsPlaceholder"
+                        rows="8"
+                    ></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="groups-input" data-i18n="groupsLabel">Number of Groups:</label>
+                    <input
+                        type="number"
+                        id="groups-input"
+                        min="2"
+                        value="2"
+                        placeholder="2"
+                    >
+                </div>
+
+                <div class="controls">
+                    <button id="randomize-btn" class="primary-btn" data-i18n="randomizeBtn">
+                        🎲 Randomize Groups
+                    </button>
+                    <button id="clear-btn" class="secondary-btn" data-i18n="clearBtn">
+                        🗑️ Clear All
+                    </button>
+                </div>
+            </div>
+
+            <div class="result-section">
+                <div id="groups-container" class="groups-container">
+                    <div class="placeholder" data-i18n="placeholder">
+                        Enter items and click "Randomize Groups" to see the results
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="confetti-container"></div>
+    <script src="app.js"></script>
+</body>
+</html>
